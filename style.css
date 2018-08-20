@@ -1,0 +1,66 @@
+#banner{
+	background-color: #444;
+	text-align: center;
+	font-family: Lucida Console;
+	font-size: 60px;
+	font-style: italic;
+	font-weight: bold;
+	color: #FFF;
+	padding: 10px;
+}
+
+#container{
+	background-color: #DDD;
+	width: 656px;
+	height: 416px;
+}
+
+#column{
+	width: 100%;
+	text-align: center;
+	margin: auto;
+}
+
+.subprice{
+	font-family: Lucida Console;
+	font-size: 30px;
+/*	background-color: #FF0;*/
+	margin: 10px;
+	color: #FFF;
+}
+
+.subcoin{
+	font-family: Lucida Console;
+	font-size: 30px;
+/*	background-color: #FF0;*/
+	margin: 10px;
+	margin-right: 0px;	/*fix double-width margins*/
+	color: #000;
+}
+
+.price{
+/*	background-color: #00F;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+}
+
+.coin{
+/*	background-color: #00F;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+}
+
+.row{
+	background-color: #888;
+	overflow: auto;
+	display: flex;
+	justify-content: center;
+}
+
+#container{
+	background-color: #444;
+}
