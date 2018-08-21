@@ -6,11 +6,12 @@
 #banner{
 	background-color: #444;
 	text-align: center;
-	font-family: Arial Black;
-	font-size: 50px;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 30px;
 	font-style: italic;
+	text-align: left;
 	color: #FFF;
-	padding: 10px;
+	padding: 0px;
 }
 
 #container{
@@ -49,7 +50,7 @@
 }
 
 .subprice{
-	font-family: Lucida Console;
+	font-family: 'Roboto Mono', monospace;
 	font-size: 30px;
 /*	background-color: #FF0;*/
 	margin: 10px;
@@ -57,7 +58,7 @@
 }
 
 .subcoin{
-	font-family: Lucida Console;
+	font-family: 'Roboto Mono', monospace;
 	font-size: 30px;
 	font-weight: bold;
 /*	background-color: #FF0;*/
