@@ -33,7 +33,7 @@ function newEntry(c, p, pr, tr){	//create a row (coin, price, preceding, trailin
 	subprice.classList.add("subprice");
 
 	subprice.textContent = normalizeFloat(p, pr, tr, "$");
-	subcoin.textContent = c;
+	subcoin.textContent = c + "\xa0";
 
 	price.appendChild(subprice);
 	coin.appendChild(subcoin);
@@ -57,7 +57,7 @@ function normalizeFloat(value, preceding, trailing, symbol){	//fancy numbers
 		str += "\xa0";
 	}
 
-	console.log(str);
+//	console.log(str);
 	return str;
 }
 

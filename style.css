@@ -51,18 +51,18 @@
 
 .subprice{
 	font-family: 'Roboto Mono', monospace;
-	font-size: 30px;
+	font-size: 55px;
 /*	background-color: #FF0;*/
-	margin: 10px;
+/*	margin: 10px;*/
 	color: #FFF;
 }
 
 .subcoin{
 	font-family: 'Roboto Mono', monospace;
-	font-size: 30px;
+	font-size: 55px;
 	font-weight: bold;
 /*	background-color: #FF0;*/
-	margin: 10px;
+/*	margin: 10px;*/
 	margin-right: 0px;	/*fix double-width margins*/
 	color: #000;
 }
