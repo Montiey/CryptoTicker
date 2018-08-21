@@ -70,4 +70,4 @@ setInterval(update, interval);	//cryptocompare API updates every 10 seconds, so 
 
 setTimeout(function(){
 	window.location.reload(true);
-}, interval * 6 * 5); //reload every 5 minutes
+}, interval * 3); //reload instead of just update every 3 * 10 seconds = 30 seconds
