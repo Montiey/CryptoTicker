@@ -48,7 +48,7 @@ function newEntry(c, p, pr, tr){	//create a row (coin, price, preceding, trailin
 function normalizeFloat(value, preceding, trailing, symbol){	//fancy numbers
 	var str = value.toString();
 	if(str.indexOf(".") < 0){
-		str += ".";
+		str += ".0";	//The string will always be sane, or at least end with this
 	}
 	var oldStr = str;
 	str = symbol + str;
