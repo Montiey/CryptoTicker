@@ -11,13 +11,14 @@
 	font-style: italic;
 	text-align: left;
 	color: #FFF;
-	padding: 0px;
+	padding: 0px 0px 5px 5px;	/*make the banner look more centered*/
 }
 
 #container{
 	background-color: #444;
 	width: 656px;
 	height: 416px;
+	position: relative;	/*necessary for positioning children*/
 }
 
 #column{
@@ -28,41 +29,51 @@
 }
 
 .row{
+	font-family: 'Roboto Mono', monospace;
 	overflow: auto;
 	display: flex;
 	justify-content: center;
+	font-size: 52px;
 }
 
 .price{
-/*	background-color: #00F;*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	float: left;
-}
-
-.coin{
-/*	background-color: #00F;*/
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	float: left;
-}
-
-.subprice{
-	font-family: 'Roboto Mono', monospace;
-	font-size: 55px;
-/*	background-color: #FF0;*/
-/*	margin: 10px;*/
 	color: #FFF;
 }
 
-.subcoin{
-	font-family: 'Roboto Mono', monospace;
-	font-size: 55px;
+.coin{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
 	font-weight: bold;
-/*	background-color: #FF0;*/
-/*	margin: 10px;*/
-	margin-right: 0px;	/*fix double-width margins*/
 	color: #000;
+}
+
+#info{
+	position: absolute;	/*allow positioning to bottom of parent*/
+	bottom: 0px;	/*bottom of parent*/
+	width: 100%;	/*position: absolute makes 100% width not the default behavior*/
+}
+
+#subinfo{
+	display: flex;
+	justify-content: space-between;
+	padding: 0px 10px 0px 10px;
+}
+
+#ip{
+	font-family: 'Roboto Mono', monospace;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#url{
+	font-family: 'Arial';
+	font-weight: bold;
+	font-style: italic;
+	font-size: 20px;
 }
