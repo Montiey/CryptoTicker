@@ -7,6 +7,11 @@ setTimeout(function(){
 
 getInfo();
 
+var qs = new URLSearchParams(new URL(document.URL).search);
+
+document.getElementById("container").style.height = qs.get("height") + "px";
+document.getElementById("container").style.width = qs.get("width") + "px";
+
 function update(){
 	var column = document.getElementById("column");
 	$.getJSON("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,BCH,ETH,LTC,XMR&tsyms=USD", function(data){
