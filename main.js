@@ -73,5 +73,4 @@ function getInfo(){	//102% certified SO blackmagic
 			document.getElementById("ip").innerHTML = ip;
 		}
 	};
-	/*document.getElementById("url").innerHTML = document.URL;*/
 }
