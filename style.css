@@ -16,8 +16,8 @@
 
 #container{
 	background-color: #444;
-	width: 656px;
-	height: 416px;
+	/*width: 656px;*/
+	/*height: 416px;*/
 	position: relative;	/*necessary for positioning children*/
 }
 
