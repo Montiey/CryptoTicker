@@ -1,11 +1,16 @@
+var seconds;	//Initialized by update()
+
 update();
-setInterval(update, 10000);	//cryptocompare API updates every 10 seconds, so we might get 0 to 9.999 second old data
+setInterval(update, 10000);	//CryptoCompare API updates every 10 seconds, so we might get 0 to 9.999 second old data
 
 setTimeout(function(){
 	window.location.reload(true);
-}, 1000 * 60 * 30); //reload instead of just update however often
+}, 1000 * 60 * 30); //Reload instead of just update however often
 
-getInfo();
+countDown();
+setInterval(countDown, 1000);
+
+getInfo();	//Prints IP
 
 var qs = new URLSearchParams(new URL(document.URL).search);
 
@@ -15,13 +20,13 @@ document.getElementById("container").style.width = qs.get("width") + "px";
 function update(){
 	var column = document.getElementById("column");
 	$.getJSON("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,BCH,ETH,LTC,XMR&tsyms=USD", function(data){
-		while(column.firstChild){	//wipe the column
+		while(column.firstChild){	//Wipe the column
 			column.removeChild(column.firstChild);
 		}
 		var maxDigits = 0;
 		var maxDecimals = 0;
 
-		$.each(data, function(index, value){	//figure out how much space the data will take up
+		$.each(data, function(index, value){	//Figure out how much space the data will take up
 			maxDigits = Math.max(value.USD.toString().indexOf("."), maxDigits);
 			maxDecimals = Math.max((value.USD.toString().length - value.USD.toString().indexOf(".")) - 1, maxDecimals);
 		});
@@ -30,12 +35,18 @@ function update(){
 			column.appendChild(newEntry(index, value.USD, maxDigits, maxDecimals));
 		});
 	}, "json");
+	seconds = 9;	//Never shows 10, shows 0 for 9.9999 seconds. Makes sense, sort of
 }
 
-function newEntry(c, p, pr, tr){	//create a row with given data
-	var elem = document.createElement("div");	//row entry container
-	var coin = document.createElement("div");	//left element
-	var price = document.createElement("div");	//right element
+function countDown(){
+	document.getElementById("timer").innerHTML = seconds;
+	seconds--;
+}
+
+function newEntry(c, p, pr, tr){	//Create a row with given data
+	var elem = document.createElement("div");	//Row entry container
+	var coin = document.createElement("div");	//Left element
+	var price = document.createElement("div");	//Right element
 
 	elem.classList.add("row");
 	coin.classList.add("coin");
@@ -50,7 +61,7 @@ function newEntry(c, p, pr, tr){	//create a row with given data
 	return elem;
 }
 
-function normalizeFloat(value, preceding, trailing, symbol){	//fancy numbers
+function normalizeFloat(value, preceding, trailing, symbol){	//Fancy numbers
 	var str = value.toString();
 	if(str.indexOf(".") < 0){
 		str += ".0";	//The return value shall always be in a sane format
