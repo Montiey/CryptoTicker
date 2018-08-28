@@ -1,21 +1,25 @@
+const updateInterval = 10;	//seconds
+const refreshInterval = 60 * 30;	//seconds
+
+
 var seconds;	//Initialized by update()
 
 update();
-setInterval(update, 10000);	//CryptoCompare API updates every 10 seconds, so we might get 0 to 9.999 second old data
+setInterval(update, updateInterval * 1000);	//CryptoCompare API updates every 10 seconds, so we might get 0 to 9.999 second old data
 
 setTimeout(function(){
 	window.location.reload(true);
-}, 1000 * 60 * 30); //Reload instead of just update however often
+}, refreshInterval * 1000); //Fetch the page every so often
 
 countDown();
 setInterval(countDown, 1000);
 
-getInfo();	//Prints IP
+getInfo();	//Print IP
 
 var qs = new URLSearchParams(new URL(document.URL).search);
 
-document.getElementById("container").style.height = qs.get("height") + "px";
-document.getElementById("container").style.width = qs.get("width") + "px";
+document.getElementById("container").style.height = window.innerHeight + "px";
+document.getElementById("container").style.width = window.innerWidth + "px";
 
 function update(){
 	var column = document.getElementById("column");
@@ -35,7 +39,7 @@ function update(){
 			column.appendChild(newEntry(index, value.USD, maxDigits, maxDecimals));
 		});
 	}, "json");
-	seconds = 9;	//Never shows 10, shows 0 for 9.9999 seconds. Makes sense, sort of
+	seconds = updateInterval - 1;
 }
 
 function countDown(){
