@@ -5,7 +5,7 @@ const refreshInterval = 60 * 30;	//seconds
 var seconds;	//Initialized by update()
 
 update();
-setInterval(update, updateInterval * 1000);	//CryptoCompare API updates every 10 seconds, so we might get 0 to 9.999 second old data
+setInterval(update, updateInterval * 1000);	//CryptoCompare API updates every 10 seconds
 
 setTimeout(function(){
 	window.location.reload(true);
@@ -58,7 +58,7 @@ function newEntry(c, p, pr, tr){	//Create a row with given data
 
 	price.textContent = normalizeFloat(p, pr, tr, "$");
 	coin.textContent = c + "\xa0";
-	
+
 	elem.appendChild(coin);
 	elem.appendChild(price);
 

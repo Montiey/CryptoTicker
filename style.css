@@ -10,7 +10,7 @@
 	font-size: 30px;
 	font-style: italic;
 	text-align: left;
-	color: #FFF;
+	color: #fff;
 	padding: 0px 0px 5px 5px;	/*make the banner look more centered*/
 }
 
@@ -25,13 +25,11 @@
 
 #container{
 	background-color: #444;
-	/*width: 656px;*/
-	/*height: 416px;*/
 	position: relative;	/*necessary for positioning children*/
 }
 
 #column{
-	background-color: #888;
+	background-color: #6b6b6b;
 	width: 100%;
 	text-align: center;
 	margin: auto;
@@ -50,7 +48,7 @@
 	justify-content: center;
 	align-items: center;
 	float: left;
-	color: #FFF;
+	color: #fff;
 }
 
 .coin{
@@ -59,13 +57,14 @@
 	align-items: center;
 	float: left;
 	font-weight: bold;
-	color: #000;
+	color: #99e7ff;
 }
 
 #info{
-	position: absolute;	/*allow positioning to bottom of parent*/
-	bottom: 0px;	/*bottom of parent*/
-	width: 100%;	/*position: absolute makes 100% width not the default behavior*/
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	color: #fff;
 }
 
 #subinfo{
@@ -83,6 +82,5 @@
 #url{
 	font-family: 'Arial';
 	font-weight: bold;
-	font-style: italic;
 	font-size: 20px;
 }
