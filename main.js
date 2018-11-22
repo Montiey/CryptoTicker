@@ -1,22 +1,18 @@
 const updateInterval = 10;	//seconds
 const refreshInterval = 60 * 30;	//seconds
 
-
-var seconds;	//Initialized by update()
-
-update();
-setInterval(update, updateInterval * 1000);	//CryptoCompare API updates every 10 seconds
+////////
 
 setTimeout(function(){
 	window.location.reload(true);
 }, refreshInterval * 1000); //Fetch the page every so often
 
+var seconds = -1;
+
 countDown();
 setInterval(countDown, 1000);
 
 getInfo();	//Print IP
-
-var qs = new URLSearchParams(new URL(document.URL).search);
 
 document.getElementById("container").style.height = window.innerHeight + "px";
 document.getElementById("container").style.width = window.innerWidth + "px";
@@ -39,12 +35,39 @@ function update(){
 			column.appendChild(newEntry(index, value.USD, maxDigits, maxDecimals));
 		});
 	}, "json");
-	seconds = updateInterval - 1;
 }
 
 function countDown(){
-	document.getElementById("timer").innerHTML = seconds;
 	seconds--;
+	if(seconds < 0){
+		var bar = $("#bar");
+
+		bar.finish();
+
+		if(bar.attr("data-target") == "0px"){
+			bar.attr("data-target", "100%");
+		} else{
+			bar.attr("data-target", "0px");
+		}
+
+		bar.animate({
+			width: bar.attr("data-target")
+		}, updateInterval * 1000, "linear", function(){
+			if(bar.attr("data-origin") == "right"){
+				bar.attr("data-origin", "left");
+				bar.css("left", "0px");
+				bar.css("right", "");
+			} else{
+				bar.attr("data-origin", "right");
+				bar.css("left", "");
+				bar.css("right", "0px");
+			}
+		});
+
+		seconds = updateInterval-1;
+		update();
+	}
+	document.getElementById("timer").innerHTML = seconds;
 }
 
 function newEntry(c, p, pr, tr){	//Create a row with given data
@@ -73,7 +96,7 @@ function normalizeFloat(value, preceding, trailing, symbol){	//Fancy numbers
 	var oldStr = str;
 	str = symbol + str;
 	for(var i = 0; i < preceding - oldStr.indexOf("."); i++){
-		str = "\xa0" + str;	//Normal spaces are ignored
+		str = "\xa0" + str;	//Normal spaces are ignored, use escape seq
 	}
 	for(var i = 0; i < trailing+1 - (oldStr.length - oldStr.indexOf(".")); i++){
 		str += "\xa0";
