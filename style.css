@@ -4,32 +4,46 @@
 }
 
 #banner{
-	background-color: #444;
+	background-color: #000;
 	text-align: center;
 	font-family: 'Roboto Mono', monospace;
 	font-size: 30px;
 	font-style: italic;
 	text-align: left;
 	color: #fff;
-	padding: 0px 0px 5px 5px;	/*make the banner look more centered*/
+	position: relative;
+}
+
+#title{
+	padding: 6px;
+}
+
+#bar{
+	background-color: #fff;
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	bottom: 0px;
+	right: 0px;
+
 }
 
 #timer{
 	position: absolute;
 	top: 0px;
 	right: 0px;
-	padding: 0px 5px 0px 0px;
+	padding: 6px;
 	font-style: normal;
 	color: #888;
 }
 
 #container{
-	background-color: #444;
+	background-color: #000;
 	position: relative;	/*necessary for positioning children*/
 }
 
 #column{
-	background-color: #6b6b6b;
+	background-color: #222;
 	width: 100%;
 	text-align: center;
 	margin: auto;
@@ -57,7 +71,7 @@
 	align-items: center;
 	float: left;
 	font-weight: bold;
-	color: #99e7ff;
+	color: #00c3ff;
 }
 
 #info{
